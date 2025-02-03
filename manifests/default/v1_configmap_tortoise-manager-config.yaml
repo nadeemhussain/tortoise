@@ -2,6 +2,7 @@ apiVersion: v1
 data:
   controller_manager_config.yaml: |
     apiVersion: controller-runtime.sigs.k8s.io/v1alpha1
+    TimeZone: "Asia/Dubai"
     kind: ControllerManagerConfig
     health:
       healthProbeBindAddress: :8081
@@ -9,6 +10,7 @@ data:
       bindAddress: 127.0.0.1:8080
     webhook:
       port: 9443
+    GatheringDataPeriodType: daily
     leaderElection:
       leaderElect: true
       resourceName: 76c4d78a.mercari.com
