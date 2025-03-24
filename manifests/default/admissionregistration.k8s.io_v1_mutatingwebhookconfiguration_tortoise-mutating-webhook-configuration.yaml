@@ -24,6 +24,9 @@ webhooks:
     - UPDATE
     resources:
     - tortoises
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: mp
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -44,6 +47,9 @@ webhooks:
     - UPDATE
     resources:
     - horizontalpodautoscalers
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: mp
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -64,4 +70,7 @@ webhooks:
     - UPDATE
     resources:
     - pods
+  namespaceSelector:
+    matchLabels:
+      kubernetes.io/metadata.name: mp
   sideEffects: None
