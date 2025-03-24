@@ -25,8 +25,11 @@ webhooks:
     resources:
     - tortoises
   namespaceSelector:
-    matchLabels:
-      kubernetes.io/metadata.name: mp
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: NotIn
+        values:
+          - kube-system
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -48,8 +51,11 @@ webhooks:
     resources:
     - horizontalpodautoscalers
   namespaceSelector:
-    matchLabels:
-      kubernetes.io/metadata.name: mp
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: NotIn
+        values:
+          - kube-system
   sideEffects: None
 - admissionReviewVersions:
   - v1
@@ -71,6 +77,9 @@ webhooks:
     resources:
     - pods
   namespaceSelector:
-    matchLabels:
-      kubernetes.io/metadata.name: mp
+    matchExpressions:
+      - key: kubernetes.io/metadata.name
+        operator: NotIn
+        values:
+          - kube-system
   sideEffects: None
